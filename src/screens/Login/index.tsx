@@ -10,7 +10,7 @@ import PageTitle from 'components/shared/PageTitle';
 import { FormBase } from 'components/styled';
 import routes from 'constants/routes';
 import { useForm } from 'react-hook-form';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { LoginFormType, LoginInput, LoginOutput, LoginStateType } from 'screens/Login/types';
 import styled from 'styled-components';
 
@@ -40,6 +40,7 @@ const LOGIN_MUTATION = gql`
 
 export default function Login() {
   const location = useLocation<LoginStateType>();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -57,6 +58,7 @@ export default function Login() {
   const [login, { loading }] = useMutation<LoginOutput, LoginInput>(LOGIN_MUTATION, {
     onCompleted({ login: { ok, error, token } }) {
       if (ok) {
+        navigate(location.pathname, { replace: true });
         loginUser(token as string);
       } else {
         if (error === 'User Not Found') {

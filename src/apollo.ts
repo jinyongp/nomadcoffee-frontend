@@ -20,7 +20,6 @@ export const colorSchemeVar = makeVar<ColorScheme>(getPreferredColorScheme());
 
 export const loginUser = (token: string) => {
   localStorage.setItem(TOKEN_KEY, token);
-  window.location.reload();
   isAuthenticatedVar(true);
 };
 
