@@ -15,14 +15,16 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src",
-    "paths": {
-      "components/*": ["components/*"],
-      "constants/*": ["constants/*"],
-      "screens/*": ["screens/*"],
-      "types/*": ["types/*"]
-    }
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "lint": {
+          "validProperties": ["aspect-ratio"]
+        }
+      }
+    ]
   },
   "include": ["src/**/*", "craco.config.js"],
-  "exclude": ["**/node_modules"]
+  "exclude": ["**/node_modules"],
+  "extends": "./tsconfig.paths.json"
 }

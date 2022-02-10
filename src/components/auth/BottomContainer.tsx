@@ -1,4 +1,4 @@
-import { ContainerBase } from 'components/styled';
+import { ContainerBase } from '@components/shared/styled';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 

@@ -1,43 +1,31 @@
+import { spin } from '@components/shared/keyframes';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentPropsWithoutRef } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-const Button = styled.button`
+const ButtonContainer = styled.button`
   padding: 5px 0;
   font-size: 1rem;
   border-radius: 10px;
   border: none;
+  width: 100%;
   background-color: ${({ theme }) => theme.accentColor};
   color: white;
-
-  &[disabled] {
-    opacity: 0.8;
-    cursor: not-allowed;
-  }
-`;
-
-const spin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 `;
 
 const Loading = styled(FontAwesomeIcon)`
   animation: ${spin} 0.8s linear infinite;
 `;
 
-type AuthButtonProps = Pick<ComponentPropsWithoutRef<'button'>, 'disabled' | 'children'> & {
+type AuthButtonProps = ComponentPropsWithoutRef<'button'> & {
   loading?: boolean;
 };
 
-export default function AuthButton({ loading = false, disabled, children }: AuthButtonProps) {
+export default function Button({ loading = false, disabled, children, ...props }: AuthButtonProps) {
   return (
-    <Button type="submit" disabled={disabled}>
+    <ButtonContainer type="submit" disabled={disabled} {...props}>
       {loading ? <Loading icon={faSpinner} /> : children}
-    </Button>
+    </ButtonContainer>
   );
 }

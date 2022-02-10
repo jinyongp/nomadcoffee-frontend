@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const LogoHeader = styled.h1`
+const LogoHeader = styled.h1<BrandProps>`
   white-space: nowrap;
-  font-size: 3rem;
+  font-size: ${({ size }) => size};
   font-weight: bold;
   color: ${({ theme }) => theme.accentColor};
   letter-spacing: -0.1rem;
@@ -10,6 +10,10 @@ const LogoHeader = styled.h1`
   text-align: center;
 `;
 
-export default function Brand() {
-  return <LogoHeader>NomadCoffee</LogoHeader>;
+type BrandProps = {
+  size?: string | number;
+};
+
+export default function Brand({ size = '3rem' }: BrandProps) {
+  return <LogoHeader size={size}>NomadCoffee</LogoHeader>;
 }

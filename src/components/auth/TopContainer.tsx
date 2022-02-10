@@ -1,5 +1,5 @@
-import Brand from 'components/shared/Brand';
-import { ContainerBase } from 'components/styled';
+import Brand from '@components/shared/Brand';
+import { ContainerBase } from '@components/shared/styled';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 

@@ -1,4 +1,4 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["craco"]
+  "cSpell.words": ["codegen", "craco", "precodegen"]
 }

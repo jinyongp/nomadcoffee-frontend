@@ -1,6 +1,14 @@
 const routes = Object.freeze({
-  home: '/',
-  signUp: '/sign-up',
+  abs: {
+    home: '/',
+    signUp: '/sign-up',
+    shop: '/shop/',
+  },
+  rel: {
+    create: 'add',
+    id: ':id',
+  },
+  notFound: '*',
 });
 
 export default routes;
