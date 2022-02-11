@@ -76,8 +76,6 @@ const ButtonTitle = styled.h3`
   color: white;
 `;
 
-const EmptyContainer = styled.article``;
-
 type MyCoffeeShopListProps = {
   userId: number;
 };
@@ -104,7 +102,9 @@ export default function MyCoffeeShopList({ userId }: MyCoffeeShopListProps) {
       ))}
     </ListContainer>
   ) : (
-    <EmptyContainer>Empty</EmptyContainer>
+    <CoffeeShopAddButton to="/shop/add" state={{ backgroundLocation: location }}>
+      <ButtonTitle>My 커피숍을 추가하고 공유해보세요!</ButtonTitle>
+    </CoffeeShopAddButton>
   );
 }
 

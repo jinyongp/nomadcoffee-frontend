@@ -77,6 +77,7 @@ export default function SignUpScreen() {
       <PageTitle page="Sign Up" />
       <TopContainer>
         <Form onSubmit={onSubmitValid}>
+          <AuthInput {...register('name', { required: true })} type="text" placeholder="Name" />
           <AuthInput
             {...register('username', { required: true })}
             type="text"
